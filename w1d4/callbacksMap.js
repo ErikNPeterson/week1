@@ -3,7 +3,7 @@ var words = ["ground", "control", "to", "major", "tom"];
 // reformatt below
 
 function wordLength (names){
-  return names = names.length
+  return names = names.length // we have to make sure to return otherwise this won't change anything
 }; // what do we put in here
 
 function upperCase (names){
@@ -15,10 +15,10 @@ function wordsInReverse (names){
 };
 
 function manipulateWords (wordsArray, manipulation){
-  var manipulatedArray = [];
-  for (var i = 0; i < wordsArray.length; i++) {
+  var manipulatedArray = []; // our new array which we will output
+  for (var i = 0; i < wordsArray.length; i++) { //loops through the wordsArray input
     //call the function on each of the words in the array
-    manipulatedArray.push(manipulation(wordsArray[i]));
+    manipulatedArray.push(manipulation(wordsArray[i])); // pushes our manipulated words into the new array
   }
   return manipulatedArray;
 }
