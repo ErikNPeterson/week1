@@ -11,12 +11,12 @@ var sortedArray = students.sort(function(a, b){
   var nameA = a.name.toUpperCase(); // this is so that we ignore upper and lowercase inconsistencies
   var nameB = b.name.toUpperCase(); // this is so that we ignore upper and lowercase inconsistencies
   if(nameA < nameB){ // comparison line
-    return -1; // checks the condition
+    return -1; // moves the item - 1 in the array(position)
   }
-  if (nameA > nameB) {
+  if (nameA > nameB) { //moves the item
     return 1;
-   }
-  if (a.age < b.age) {// names must be equal
+   }  // at this point we know the names must be equal
+  if (a.age < b.age) { // we then compare the age: and move the smaller + 1 in the array(position)
   return 1;
 }
 });
