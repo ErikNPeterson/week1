@@ -9,9 +9,9 @@ var countdownGenerator = function (x) { //because the function is assigned as a 
     var countdownList = countdown[count];
     count += 1;
       if(count === countdown.length){ // when i === array.length this will set i back to 0
-        count = countdown.length - 1;
-      }
-      console.log(countdownList);
+        count = countdown.length - 1; // we us .length -1 because the END counter would be 4
+      }                               // while the length would be 5 so we -1 to make it 4
+      console.log(countdownList);     // this part makes the function continue to run countdown[4]
       return countdownList;
   }
 };
@@ -23,9 +23,9 @@ countdown(); // T-minus 1...
 countdown(); // Blast Off!
 countdown(); // Rockets already gone, bub!
 countdown(); // Rockets already gone, bub!
-countdown(); // T-minus 3...
-countdown(); // T-minus 2...
-countdown(); // T-minus 1...
-countdown(); // Blast Off!
-countdown(); // Rockets already gone, bub!
+countdown();
+countdown();
+countdown();
+countdown();
+countdown();
 countdown();
