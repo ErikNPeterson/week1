@@ -32,10 +32,10 @@ var library = {
 var printPlaylists = function () {
   for (var playlistId in library.playlists) {  // (var x in y ) value will always be y[x]
     var playlist = library.playlists[playlistId] // we use square [] brackets to refer to get keys that we don't know the name
-  console.log(playlist.id + ": " + playlist.name + " - " + playlist.tracks.length + " tracks")
+    console.log(playlist.id + ": " + playlist.name + " - " + playlist.tracks.length + " tracks")
   }
 }
-//printPlaylists();
+// printPlaylists();
 
 
 // prints a list of all tracks, in the form:
@@ -50,7 +50,7 @@ var printTracks = function () {
   }
 }
 
-//printTracks();
+// printTracks();
 
 // prints a list of tracks for a given playlist, in the form:
 // p01: Coding Music - 2 tracks
@@ -66,24 +66,19 @@ var printPlaylist = function (playlistId) {
     console.log(trackInfo.id + ": " + trackInfo.name + ' by ' + trackInfo.artist + " (" + trackInfo.album + ")")
   })
 }
-//printPlaylist('p01');
+// printPlaylist('p01');
 
 //GOOD UP TO THIS POINT! *********************************
-
 
 // adds an existing track to an existing playlist
 
 var addTrackToPlaylist = function (trackId, playlistId) {
-  var newTrack = library.tracks[trackId];
-  var newPlaylist = library.playlists[playlistId].tracks
-  newPlaylist.push(newTrack);
-  console.log(newPlaylist)
+  var newPlaylist = library.playlists[playlistId].tracks;
+  newPlaylist.push(trackId);
+  console.log(newPlaylist);
 }
-addTrackToPlaylist('t01','p02');
+ // addTrackToPlaylist('t01','p02');
 
-// How do I check something like this ? also this still hasn't added to the playlist
-//I'm also not sure how to get it to look into playlistId ?
-//come back to this
 
 // generates a unique id
 // (use this for addTrack and addPlaylist)
@@ -96,16 +91,33 @@ var uid = function() {
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
-
+  var newId = uid();
+  var newTrack = {
+    id: newId,
+    name: name,
+    artist: artist,
+    album: album
+  };
+  library.tracks[newId] = newTrack;
 }
 
+addTrack("Michael's Party JAM", "Michael Greenleaf", "what chu gonna do with all that code");
 
+// console.log(library.tracks);
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
-
+  var newPlaylist = {
+     id: uid(),
+    name: name,
+    tracks: [],
+  };
+  library.playlists[name] = newPlaylist;
 }
 
+addPlaylist("Coding Songs!!!");
+
+console.log(library.playlists);
 
 // STRETCH:
 // given a query string string, prints a list of tracks
