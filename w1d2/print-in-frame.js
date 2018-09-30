@@ -1,19 +1,23 @@
 function printInFrame(list) {
-  var list = list.split(' ');
-  var longest = longestStr(list).length;
-  var border = repeat('*', longest);
+  var list = list.split(' '); // splitting the string into an array
+  var longest = longestStr(list).length; // length of our longest word in a array
+  var longestWordLine = ('* ' + longestStr(list) + ' *');
+  var borderLineLength = longestWordLine.length;
+  var border = repeat('*', borderLineLength); //
 
-  console.log(border);
-  for (word of list) {
+console.log(border);
+  for (var word of list) {
     console.log('* ' + word + repeat(' ', longest - word.length + 1) + '*');
   }
   console.log(border);
 }
 
+// function codes located below.
+
 function repeat(str, times) {
   var result = str;
 
-  for (var i = 0; i < times; i++) {
+  for (var i = 0; i < times - 1 ; i++) {
     result += str;
   }
 
@@ -23,10 +27,11 @@ function repeat(str, times) {
 function longestStr(list) {
   var longest = list[0];
 
-  for (str of list) {
-    longest = str;
+  for (var str of list) {
+    if (str.length >= longest.length){
+      longest = str;
+    }
   }
-
   return longest;
 }
 
